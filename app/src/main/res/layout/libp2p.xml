@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.08">
+        <ImageView
+            android:background="@drawable/image_back"
+            android:elevation="20dp"
+            android:id="@+id/cancelimg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+           android:layout_gravity="end"
+            />
+        <RelativeLayout android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:elevation="10dp">
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            android:id="@+id/link"
+            android:textSize="15dp"
+            android:textColor="#000000" />
+        </RelativeLayout>
+<ProgressBar
+    android:id="@+id/pb"
+    android:progressDrawable="@drawable/real_green_prog"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+    </FrameLayout>
+    <WebView
+        android:id="@+id/webview"
+        android:background="@color/back"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+</LinearLayout>

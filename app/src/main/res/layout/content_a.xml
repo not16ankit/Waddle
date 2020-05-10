@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#002B36"
+    android:id="@+id/container23"
+    tools:showIn="@layout/app_bar_a"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/swipe"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <FrameLayout android:layout_height="match_parent"
+        android:layout_width="match_parent">
+       <ListView android:layout_height="match_parent"
+           android:layout_width="match_parent"
+           android:id="@+id/files"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView android:id="@+id/mantext"
+            android:layout_gravity="center_vertical"
+            android:textColor="#FFFFFF"
+            android:visibility="invisible"
+            android:textSize="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="No Files Added"/>
+        </RelativeLayout>
+    </FrameLayout>
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</RelativeLayout>

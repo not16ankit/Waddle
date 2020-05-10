@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Waddle</string>
+    <string name="title_activity_a">Drive</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="youtube"><a href="https://www.google.com">More details.</a></string>
+    <string name="action_settings">Settings</string>
+<string name="libp2p">https://libp2p.io</string>
+    <string name="email">thakurankit16@pm.me</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+<string name="discord">https://discord.gg/cnWtNZe</string>
+    <string name="code">09289f2b375b1cbea7671a5418b4d840806a168254dc014c77e8e616f7a227129e6f56d5bf17f4252341d7021b2b1bad55c30912a3f6ab1490a1a75b9763d44f</string>
+<string name="files">adobe,ai,audio,avi,code,csv,doc,excel,gif,img,jpg,mp3,mp4,pdf,pie,png,ppt,ps,tar,txt,video,wav,xls,zip,fileicon</string>
+    <string name="home_second">Home Second</string>
+</resources>
