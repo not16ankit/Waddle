@@ -8,8 +8,12 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
 import android.os.*
+import android.text.InputType
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -284,7 +288,7 @@ fun code1()
                input.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY,0)
                 val sr: StringRequest = object : StringRequest(
                     Request.Method.POST,
-                    "http://waddle.oromap.in/signin.php",
+                    resources.getString(R.string.url)+"/signin.php",
                     Response.Listener {
                         if (it.equals("200", true)) {
                             ankit(email, password)
@@ -323,6 +327,25 @@ fun code1()
     }
     fun afterper()
     {
+        var i = 0;
+        val eye = findViewById<ImageView>(R.id.eye)
+        eye.setOnClickListener(object:View.OnClickListener
+        {
+            override fun onClick(v: View?) {
+                if(i==0)
+                {
+                    password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                    i=1;
+                    eye.setColorFilter(resources.getColor(R.color.green))
+                }
+                else
+                {
+                    password.transformationMethod = PasswordTransformationMethod.getInstance();
+                    eye.clearColorFilter()
+                    i=0;
+                }
+                }
+        })
         y!!.removeViewAt(5)
         emailet!!.isEnabled = true
         findViewById<Button>(R.id.login).isClickable = true
@@ -333,7 +356,7 @@ fun code1()
     {
         var links = arrayOfNulls<String>(6).toList()
         val qu= Volley.newRequestQueue(this)
-        val sr = StringRequest(Request.Method.POST,"http://waddle.oromap.in/links.php",Response.Listener {
+        val sr = StringRequest(Request.Method.POST,resources.getString(R.string.url)+"/links.php",Response.Listener {
             links = it.toString().split(",")
             val vp:ViewPager = findViewById(R.id.vp)
             val vpadapt = pageradapter(supportFragmentManager,this,vp,links)
@@ -390,9 +413,8 @@ class geticons:AsyncTask<Context, Context,String>()
             var l = 0
             lateinit var filestream: FileOutputStream
             while (i < 25) {
-                url = URL("http://waddle.oromap.in/resources/icons/" + list.get(i).trim() + ".png")
+                url = URL(params[0]!!.resources.getString(R.string.url)+"/resources/icons/" + list.get(i).trim() + ".png")
                 con = url.openConnection() as HttpURLConnection
-                con.addRequestProperty("Referer", "http://waddle.oromap.in")
                 input = con.getInputStream()
                 fileto = File(params[0]!!.filesDir, list.get(i) + ".png")
                 filestream = FileOutputStream(fileto)

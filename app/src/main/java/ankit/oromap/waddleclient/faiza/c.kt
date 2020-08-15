@@ -41,9 +41,8 @@ public class c(handler: Handler, progressBar: ProgressBar, con: Context, vp: Vie
 
     override fun doInBackground(vararg params: Int?): Int {
         try {
-            val u: URL = URL("http://waddle.oromap.in/resources/" + params[0] + ".png")
+            val u: URL = URL(c.resources.getString(R.string.url)+"/resources/" + params[0] + ".png")
             val con: HttpURLConnection = u.openConnection() as HttpURLConnection
-            con.setRequestProperty("Referer", "http://waddle.oromap.in")
             val l = con.contentLength
             var b2 = ByteArray(10000)
             var len = 0

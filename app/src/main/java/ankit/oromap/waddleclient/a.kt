@@ -170,9 +170,9 @@ fun riptonystark(hash:String)
 {
     lay!!.getChildAt(2).findViewById<TextView>(R.id.processname).setText("Indexing...")
     val ququ=Volley.newRequestQueue(this)
-    val sr = object:StringRequest(Request.Method.POST,"http://waddle.oromap.in/storehashs.php",Response.Listener {
+    val sr = object:StringRequest(Request.Method.POST,resources.getString(R.string.url)+"/storehashs.php",Response.Listener {
         var json:String = ""
-        val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+        val sr = object : StringRequest(Request.Method.POST, resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
             json = it
             overkip(json.trim(),2)
         }, Response.ErrorListener {
@@ -267,7 +267,7 @@ fun riptonystark(hash:String)
                 super.handleMessage(msg)
                 val quq = Volley.newRequestQueue(applicationContext)
                 var json:String = ""
-                val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+                val sr = object : StringRequest(Request.Method.POST, resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
                     json = it
                     overkip(json.trim(),9)
                 }, Response.ErrorListener {
@@ -439,7 +439,7 @@ fun riptonystark(hash:String)
             lay!!.addView(load)
             drawer!!.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             val queue = Volley.newRequestQueue(this)
-            val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+            val sr = object : StringRequest(Request.Method.POST, resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
                 json = it
                 if(!File(filesDir,"jpg.png").exists())
                 {
@@ -491,7 +491,7 @@ fun riptonystark(hash:String)
             lay!!.addView(load)
             drawer!!.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
             val queue = Volley.newRequestQueue(this)
-            val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+            val sr = object : StringRequest(Request.Method.POST,resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
                 json = it
                 if(!File(filesDir,"jpg.png").exists())
                 {
@@ -534,7 +534,7 @@ fun riptonystark(hash:String)
         swip.setOnRefreshListener(object:SwipeRefreshLayout.OnRefreshListener {
             override fun onRefresh() {
                 val ququ =Volley.newRequestQueue(applicationContext)
-                val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+                val sr = object : StringRequest(Request.Method.POST, resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
                     swip.isRefreshing  = false
                     json = it
                     overkip(json.trim(),0)
@@ -626,8 +626,8 @@ fun riptonystark(hash:String)
             }
         }
         webview.webChromeClient = client
-        webview.loadUrl("http://waddle.oromap.in/about.php")
-        view.findViewById<TextView>(R.id.link).setText("http://waddle.oromap.in/about.php")
+        webview.loadUrl(resources.getString(R.string.url)+"/about.php")
+        view.findViewById<TextView>(R.id.link).setText(resources.getString(R.string.url)+"/about.php")
         view.findViewById<ImageView>(R.id.cancelimg).setOnClickListener(View.OnClickListener {
             drawer!!.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
             lay!!.removeViewAt(2)
@@ -637,7 +637,7 @@ fun riptonystark(hash:String)
     {
         val quq = Volley.newRequestQueue(this)
         var json:String = ""
-        val sr = object : StringRequest(Request.Method.POST, "http://waddle.oromap.in/gethashs.php", Response.Listener {
+        val sr = object : StringRequest(Request.Method.POST, resources.getString(R.string.url)+"/gethashs.php", Response.Listener {
             json = it
             overkip(json.trim(),9)
         }, Response.ErrorListener {
@@ -1014,18 +1014,7 @@ class adapter2(alert:AlertDialog.Builder,l:ViewGroup,c:Context,num:Integer,list:
     }
     fun delete(queue:RequestQueue,hash2:String)
     {
-        al.setCancelable(false)
-        al.setTitle("Sorry")
-        al.setMessage("Delete feature is experiencing some issues and will soon be available.")
-        al.setNegativeButton("OK",object:DialogInterface.OnClickListener
-        {
-            override fun onClick(dialog: DialogInterface?, which: Int) {
-                dialog!!.dismiss()
-                dialog.cancel()
-            }
-        })
-        al.show()
-        /*   al.setTitle("Alert")
+          al.setTitle("Alert")
                             al.setMessage("Do you want to delete this file from our indexes?")
                             al.setNegativeButton("NO", object : DialogInterface.OnClickListener {
                                 override fun onClick(dialog: DialogInterface?, which: Int) {
@@ -1039,11 +1028,11 @@ class adapter2(alert:AlertDialog.Builder,l:ViewGroup,c:Context,num:Integer,list:
                                     dialog!!.cancel()
                                 }
                             })
-                            al.show() */
-        /* val v = LayoutInflater.from(con).inflate(R.layout.load1,lay,false)
+                            al.show()
+         val v = LayoutInflater.from(con).inflate(R.layout.load1,lay,false)
         lay.addView(v)
         drawer!!.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
-        val sr =object : StringRequest(Request.Method.POST,"http://waddle.oromap.in/deletehash.php",Response.Listener {
+        val sr =object : StringRequest(Request.Method.POST,context.resources.getString(R.string.url)+"/deletehash.php",Response.Listener {
             if(it.toInt()==200)
             {
                 lay.removeViewAt(2)
@@ -1070,7 +1059,7 @@ class adapter2(alert:AlertDialog.Builder,l:ViewGroup,c:Context,num:Integer,list:
                 return hash
             }
         }
-        queue.add(sr) */
+        queue.add(sr)
     }
     fun download(hash:String) {
         if (op == 1) {

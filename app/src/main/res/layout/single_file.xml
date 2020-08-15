@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_marginRight="2dp"
+<FrameLayout android:layout_marginRight="2dp"
     android:layout_marginLeft="2dp"
     android:background="@color/back"
     android:orientation="horizontal"
@@ -17,26 +17,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <RelativeLayout
+            android:background="@color/back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/double_files_back"
             android:layout_weight="2">
-    <androidx.cardview.widget.CardView
-        android:layout_height="130dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginEnd="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginRight="3dp"
-        android:layout_width="match_parent"
-        android:id="@+id/f1"
-        app:cardBackgroundColor="@color/back"
-        app:cardElevation="20dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="130dp">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -127,11 +115,15 @@
                     android:layout_height="match_parent"/>
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
             </RelativeLayout>
     </LinearLayout>
     <Space
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:layout_below="@id/lay"/>
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/beauty_back"
+        android:alpha="0.3"/>
+</FrameLayout>
